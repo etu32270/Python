@@ -1,10 +1,18 @@
-path = "TableDeMultiplication.txt"
-file = open(path, 'w')
+path = input("Entrer le nom de votre fichier : ")
 
-base = range(1, 21)
 
-for i in range(2, 31):
-    list = [i * j for j in base]
-    file.write(" ".join(str(j) for j in list) + "\n")
+choix = input("Voulez vous lire ou créer un nouveau fichier (Lire=r / Creer=a) : ")
 
-file.close()
+if choix == 'a':
+    file = open(path, choix)
+
+    line = input("Entrer une nouvelle ligne : ")
+    while line != "":
+        file.write(line+"\n")
+        line = input("Entrer une nouvelle ligne : ")
+
+
+else:
+    file = open(path, choix)
+    for line in file:
+        print(line, end='')
